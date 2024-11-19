@@ -3,7 +3,7 @@ use actix_web::{http::StatusCode, post, HttpResponse, Responder};
 
 #[derive(Debug, MultipartForm)]
 struct UploadForm {
-    #[multipart(limit = "100MB")]
+    #[multipart(limit = "200MB")]
     file: TempFile,
 }
 

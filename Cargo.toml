@@ -6,6 +6,7 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+file_app = { path = "./file_app" }
 actix-multipart = "0.7.2"
 actix-web = "4.9.0"
 tokio = { version = "1.41.1", features = ["full"] }
