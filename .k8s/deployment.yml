@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: file-ms-deployment
+  labels:
+    app: file-ms
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: file-ms
+  template:
+    metadata:
+      labels:
+        app: file-ms
+    spec:
+      containers:
+        - name: file-ms
+          image: <replace_file-ms:latest>
+          ports:
+            - containerPort: 4555
+          env:
+            - name: RUST_LOG
+              value: info
+            - name: PORT
+              value: "4555"
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "250m"
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
