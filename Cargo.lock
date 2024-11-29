@@ -611,6 +611,10 @@ checksum = "486f806e73c5707928240ddc295403b1b93c96a02038563881c4a2fd84b81ac4"
 [[package]]
 name = "file_app"
 version = "0.1.0"
+dependencies = [
+ "log",
+ "uuid",
+]
 
 [[package]]
 name = "file_fs"
@@ -625,7 +629,6 @@ dependencies = [
  "serde",
  "serde_json",
  "tokio",
- "uuid",
 ]
 
 [[package]]
