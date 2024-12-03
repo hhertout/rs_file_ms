@@ -2,7 +2,7 @@ use std::io::Read;
 
 use actix_multipart::form::{tempfile::TempFile, MultipartForm};
 use actix_web::{http::StatusCode, post, HttpResponse, Responder};
-use file_app::{fs::save, inspector::check_mime_type_from, mime::MimeType};
+use file_app::{inspector::check_mime_type_from, mime::MimeType, resizer::resize};
 
 #[derive(Debug, MultipartForm)]
 struct UploadForm {
@@ -34,7 +34,9 @@ pub async fn post_file(MultipartForm(mut form): MultipartForm<UploadForm>) -> im
         }
     };
 
-    let _ = save("temp", &content, &MimeType::JPG.to_string());
+    let _ = resize(&content);
+
+    //let _ = save("temp", &content, &MimeType::JPG.to_string());
 
     HttpResponse::new(StatusCode::OK)
 }
