@@ -25,7 +25,7 @@ pub struct ErrorResponse {
 pub async fn post_file(MultipartForm(mut form): MultipartForm<UploadForm>) -> impl Responder {
     log::debug!(
         "File form data handled => name='{}'; content-type={:?}; size: {}bytes;",
-        form.file.file_name.unwrap_or_else(|| "unknow".to_string()),
+        form.file.file_name.unwrap_or_else(|| "unknown".to_string()),
         form.file.content_type,
         form.file.size
     );
