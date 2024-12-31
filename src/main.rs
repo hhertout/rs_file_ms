@@ -1,7 +1,7 @@
 use actix_web::{App, HttpServer};
-use domain::controller::{ping, v1::get_v1_service};
+use application::controller::{ping, v1::get_v1_service};
 
-mod domain;
+mod application;
 mod infra;
 
 pub extern crate file_app;
